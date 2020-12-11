@@ -148,6 +148,7 @@ router.delete("/:id", (req, res, next) => {
 router.post("/:id/upload", upload.single("productPhoto"), async (req, res, next) => {
   try {
     const targetFile_products = readFileHandler("products.json");
+    const indexOfProduct = targetFile_products.indexOf((product) => product._id === req.params.id);
     if (targetFile_products.filter((e) => e._id === req.params.id).length !== 0) {
       await writeFile(
         join(productImagesPath, `${req.params.id}${path.extname(req.file.originalname)}`),
@@ -155,8 +156,10 @@ router.post("/:id/upload", upload.single("productPhoto"), async (req, res, next)
       );
       const filteredFile = targetFile_products.filter((product) => product._id !== req.params.id);
       const product = targetFile_products.filter((product) => product._id === req.params.id);
-      product[0].image = `${req.params.id.toString()}${path.extname(req.file.originalname.toString())}`;
-      filteredFile.push(product[0]);
+      (product[0].image = `http://localhost:3001/images/products/${req.params.id.toString()}${path.extname(
+        req.file.originalname.toString()
+      )}`),
+        filteredFile.push(product[0]);
       fs.writeFileSync(join(__dirname, "products.json"), JSON.stringify(filteredFile));
       res.send("Image successfully uploaded");
     } else {

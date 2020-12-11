@@ -14,7 +14,7 @@ const {
 const server = express();
 
 const port = 3001;
-const publicFolderPath = join(__dirname, "../public");
+const publicFolderPath = join(__dirname, "../public/images/products");
 
 const loggerMiddleware = (req, res, next) => {
   console.log(`Logged ${req.url} ${req.method} -- ${new Date()}`);
@@ -24,7 +24,7 @@ const loggerMiddleware = (req, res, next) => {
 server.use(cors());
 server.use(express.json());
 server.use(loggerMiddleware);
-server.use(express.static(publicFolderPath));
+server.use("/images/products", express.static(publicFolderPath));
 
 server.use("/products", studentsRoutes);
 server.use("/reviews", reviewsRoutes);

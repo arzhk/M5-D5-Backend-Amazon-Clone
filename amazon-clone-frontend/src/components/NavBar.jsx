@@ -1,17 +1,20 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Col, InputGroup, Container, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <Navbar id="navbar-main" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
-          <small className="badge badge-amazon mr-2">not</small>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/donate/thumb/f/fd/Amazon-logo-white.svg/1200px-Amazon-logo-white.svg.png"
-            style={{ height: 20 }}
-          />
-        </Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>
+            <small className="badge badge-amazon mr-2">not</small>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/donate/thumb/f/fd/Amazon-logo-white.svg/1200px-Amazon-logo-white.svg.png"
+              style={{ height: 20 }}
+            />
+          </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100 ">
