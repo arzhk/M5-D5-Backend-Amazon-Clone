@@ -1,1 +1,28 @@
-[{"name":"bbbbbb","description":"tecddddd","brand":"bddddr","price":155666666,"category":"category","_id":"8d0rgoiqkkik3oxfe","_createdAt":"2020-12-11T10:01:29.401Z","_updatedAt":"2020-12-11T10:01:29.401Z"},{"name":"ccccc","description":"tecddddd","brand":"bddddr","price":155666666,"category":"category","_id":"8d0rgof90kik3ozf3","_createdAt":"2020-12-11T10:01:31.982Z","_updatedAt":"2020-12-11T10:01:31.982Z"},{"name":"aaaaaa","description":"tecddddd","brand":"bddddr","price":155666666,"category":"category","_id":"8d0rgobokkik3ovhy","_createdAt":"2020-12-11T10:01:26.901Z","_updatedAt":"2020-12-11T10:01:26.901Z","image":"8d0rgobokkik3ovhy.jpg"}]
+[
+  {
+    "name": "ccccc",
+    "description": "tecddddd",
+    "brand": "bddddr",
+    "price": 155666666,
+    "category": "category",
+    "reviews": [
+      {
+        "comment": "this is a test comment being edited",
+        "rate": 1,
+        "_productId": "8d0rgocdokik6gl0m",
+        "_id": "8d0rgo488kik8x1en",
+        "_createdAt": "2020-12-11T12:27:45.886Z"
+      },
+      {
+        "comment": "this is a test comment being edited",
+        "rate": 2,
+        "_productId": "8d0rgocdokik6gl0m",
+        "_id": "8d0rgobx4kik8x4ho",
+        "_createdAt": "2020-12-11T12:27:49.883Z"
+      }
+    ],
+    "_id": "8d0rgocdokik6gl0m",
+    "_createdAt": "2020-12-11T11:18:58.917Z",
+    "_updatedAt": "2020-12-11T11:18:58.917Z"
+  }
+]

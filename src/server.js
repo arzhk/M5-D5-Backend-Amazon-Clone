@@ -2,6 +2,7 @@ const express = require("express");
 const { join } = require("path");
 const cors = require("cors");
 const studentsRoutes = require("./products");
+const reviewsRoutes = require("./reviews");
 const {
   notFoundHandler,
   unauthorizedHandler,
@@ -26,6 +27,7 @@ server.use(loggerMiddleware);
 server.use(express.static(publicFolderPath));
 
 server.use("/products", studentsRoutes);
+server.use("/reviews", reviewsRoutes);
 
 server.use(notFoundHandler);
 server.use(unauthorizedHandler);

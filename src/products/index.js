@@ -64,6 +64,7 @@ router.post(
         const targetFile = readFileHandler("products.json");
         const newProduct = {
           ...req.body,
+          reviews: [],
           _id: uniqid(),
           _createdAt: new Date(),
           _updatedAt: new Date(),
