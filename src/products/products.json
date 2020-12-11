@@ -1,0 +1,32 @@
+[
+  {
+    "name": "aaaaaa",
+    "description": "tecddddd",
+    "brand": "bddddr",
+    "price": 155666666,
+    "category": "category",
+    "_id": "8d0rgobokkik3ovhy",
+    "_createdAt": "2020-12-11T10:01:26.901Z",
+    "_updatedAt": "2020-12-11T10:01:26.901Z"
+  },
+  {
+    "name": "bbbbbb",
+    "description": "tecddddd",
+    "brand": "bddddr",
+    "price": 155666666,
+    "category": "category",
+    "_id": "8d0rgoiqkkik3oxfe",
+    "_createdAt": "2020-12-11T10:01:29.401Z",
+    "_updatedAt": "2020-12-11T10:01:29.401Z"
+  },
+  {
+    "name": "ccccc",
+    "description": "tecddddd",
+    "brand": "bddddr",
+    "price": 155666666,
+    "category": "category",
+    "_id": "8d0rgof90kik3ozf3",
+    "_createdAt": "2020-12-11T10:01:31.982Z",
+    "_updatedAt": "2020-12-11T10:01:31.982Z"
+  }
+]
