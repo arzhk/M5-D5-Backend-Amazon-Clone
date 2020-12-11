@@ -8,9 +8,12 @@ const { writeFile, createReadStream } = require("fs-extra");
 const { join } = require("path");
 
 const router = express.Router();
+const upload = multer({});
+
+const productImagesPath = join(__dirname, "../../public/images/products");
 
 const readFileHandler = (filename) => {
-  const targetFile = JSON.parse(fs.readFileSync(path.join(__dirname, filename)).toString());
+  const targetFile = JSON.parse(fs.readFileSync(join(__dirname, filename)).toString());
   return targetFile;
 };
 
@@ -138,6 +141,41 @@ router.delete("/:id", (req, res, next) => {
     }
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.post("/:id/upload", upload.single("productPhoto"), async (req, res, next) => {
+  try {
+    const targetFile_products = readFileHandler("products.json");
+    if (targetFile_products.filter((e) => e._id === req.params.id).length !== 0) {
+      await writeFile(
+        join(productImagesPath, `${req.params.id}${path.extname(req.file.originalname)}`),
+        req.file.buffer
+      );
+      const filteredFile = targetFile_products.filter((product) => product._id !== req.params.id);
+      const product = targetFile_products.filter((product) => product._id === req.params.id);
+      product[0].image = `${req.params.id.toString()}${path.extname(req.file.originalname.toString())}`;
+      filteredFile.push(product[0]);
+      fs.writeFileSync(join(__dirname, "products.json"), JSON.stringify(filteredFile));
+      res.send("Image successfully uploaded");
+    } else {
+      const err = new Error();
+      err.message = {
+        errors: [
+          {
+            value: req.params.id,
+            msg: "Product with that ID not found",
+            param: "_id",
+            location: "url",
+          },
+        ],
+      };
+      err.httpStatusCode = 400;
+      next(err);
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
   }
 });
 
