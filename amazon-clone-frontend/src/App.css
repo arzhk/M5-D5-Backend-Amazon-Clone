@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eaeded;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#navbar-main {
+  background-color: #131921;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#navbar-main a {
+  color: #fff;
+  border: 1px solid transparent;
+  height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#navbar-main a:hover {
+  text-decoration: none;
+  border: 1px solid #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#navbar-main .badge-amazon {
+  color: #131921;
+  background-color: #ff9900;
+  font-size: 0.8rem;
+}
+
+#navbar-main input {
+  border: none;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+#navbar-main .search-pre {
+  border: none;
+}
+
+#navbar-main .search-post {
+  border: none;
+  background-color: #febd69;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+#navbar-main .search-post:hover {
+  background-color: rgb(243, 168, 71);
+}
+
+#navbar-main .search-post:active {
+  transform: scale(1.1);
+}
+
+#navbar-main .dropdown-link {
+  font-size: 0.8rem;
 }
