@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function ProductCard(props) {
@@ -7,6 +7,22 @@ function ProductCard(props) {
   return (
     <Col xs={3} className="mb-3">
       <Card className="product-card">
+        {props.product.name === "DJ Siii Duck" && (
+          <small
+            className="font-weight-bold text-right"
+            style={{
+              color: "#febd69",
+              position: "absolute",
+              left: 15,
+              top: "-10px",
+              backgroundColor: "#3e4959",
+              padding: "5px 10px",
+              borderRadius: "0.6rem",
+            }}
+          >
+            Most popular*
+          </small>
+        )}
         <div className="img-wrap">
           <div
             className="img-img"

@@ -1,7 +1,7 @@
 const express = require("express");
 const { join } = require("path");
 const cors = require("cors");
-const studentsRoutes = require("./products");
+const productsRoutes = require("./products");
 const reviewsRoutes = require("./reviews");
 const {
   notFoundHandler,
@@ -26,7 +26,7 @@ server.use(express.json());
 server.use(loggerMiddleware);
 server.use("/images/products", express.static(publicFolderPath));
 
-server.use("/products", studentsRoutes);
+server.use("/products", productsRoutes);
 server.use("/reviews", reviewsRoutes);
 
 server.use(notFoundHandler);

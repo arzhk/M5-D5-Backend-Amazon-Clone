@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 
 function ProductPage(props) {
-  const [productID, setProductID] = React.useState(props.match.params.id);
+  const productID = props.match.params.id;
   const [productData, setProductData] = React.useState({});
 
   const fetchProductData = async () => {
@@ -32,6 +32,7 @@ function ProductPage(props) {
           <div className="product-page-image" style={{ background: `url("${productData.image}")` }}></div>
         </div>
         <div>
+          {productData.name === "DJ Siii Duck" && <small>most popular*</small>}
           <h1>{productData.name}</h1>
           <p>{productData.description}</p>
           <p>{productData.brand}</p>

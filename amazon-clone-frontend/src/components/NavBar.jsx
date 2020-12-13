@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Col, InputGroup, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl, Col, InputGroup, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -12,6 +12,7 @@ function NavBar() {
             <img
               src="https://upload.wikimedia.org/wikipedia/donate/thumb/f/fd/Amazon-logo-white.svg/1200px-Amazon-logo-white.svg.png"
               style={{ height: 20 }}
+              alt="logo"
             />
           </Navbar.Brand>
         </Link>
