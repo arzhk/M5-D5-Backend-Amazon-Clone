@@ -1,8 +1,31 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl, Col, InputGroup, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 function NavBar() {
+  const [searchInput, setSearchInput] = React.useState("");
+  const history = createBrowserHistory();
+
+  const searchInputHandler = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const submitSearchHandler = (event) => {
+    if (event.keyCode === 13) {
+      if (searchInput === "admin") {
+        history.push("/admin");
+        window.location.reload();
+      }
+      if (searchInput === "home") {
+        history.push("");
+        window.location.reload();
+      }
+    }
+  };
+
+  React.useEffect(() => {}, [searchInput]);
+
   return (
     <Navbar id="navbar-main" expand="lg">
       <Container>
@@ -29,7 +52,12 @@ function NavBar() {
                     <small className="mr-2">All</small> <i className="fas fa-angle-down"></i>
                   </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl id="search-bar" />
+                <FormControl
+                  id="search-bar"
+                  onKeyDown={submitSearchHandler}
+                  onChange={searchInputHandler}
+                  value={searchInput}
+                />
                 <InputGroup.Append>
                   <InputGroup.Text className="search-post">
                     <i className="fas fa-search"></i>

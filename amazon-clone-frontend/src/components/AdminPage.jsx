@@ -7,6 +7,9 @@ import ProductTableItem from "./ProductTableItem";
 function AdminPage() {
   const [allProducts, setAllProducts] = useState([]);
   const [tableIsLoading, setTableIsLoading] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editProductInfo, setEditProductInfo] = useState({});
+  const [showImageUpload, setShowImageUpload] = React.useState(false);
 
   const fetchAllProductsHandler = async () => {
     try {
@@ -22,6 +25,18 @@ function AdminPage() {
     setTableIsLoading(state);
   };
 
+  const toggleModalHandler = () => {
+    setShowEditModal(!showEditModal);
+  };
+
+  const pullEditProductInfoHandler = (product) => {
+    setEditProductInfo(product);
+  };
+
+  const showImageUploaderHandler = () => {
+    setShowImageUpload(true);
+  };
+
   useEffect(() => {
     fetchAllProductsHandler();
   }, []);
@@ -30,9 +45,14 @@ function AdminPage() {
     <>
       <Container className="mt-5">
         <AddProduct fetchAllProductsHandler={fetchAllProductsHandler} />
-        <EditProduct fetchAllProductsHandler={fetchAllProductsHandler} />
+
         <Col xs={12}>
           <div className="mt-3">
+            {showImageUpload && (
+              <div className="image-upload-container">
+                <div className="image-upload-container-content">test test</div>
+              </div>
+            )}
             <Table striped bordered hover size="sm">
               <thead>
                 <tr>
@@ -58,6 +78,9 @@ function AdminPage() {
                         product={product}
                         fetchAllProductsHandler={fetchAllProductsHandler}
                         tableLoadingHandler={tableLoadingHandler}
+                        toggleModalHandler={toggleModalHandler}
+                        pullEditProductInfoHandler={pullEditProductInfoHandler}
+                        showImageUploaderHandler={showImageUploaderHandler}
                       />
                     ))}
                 </tbody>
@@ -66,6 +89,13 @@ function AdminPage() {
           </div>
         </Col>
       </Container>
+      {showEditModal && (
+        <EditProduct
+          toggleModalHandler={toggleModalHandler}
+          editProductInfo={editProductInfo}
+          fetchAllProductsHandler={fetchAllProductsHandler}
+        />
+      )}
     </>
   );
 }
