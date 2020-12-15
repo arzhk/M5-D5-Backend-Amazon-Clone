@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AddProduct from "./AddProduct";
 import EditProduct from "./EditProduct";
-import { Table, Container, Col, Spinner } from "react-bootstrap";
+import { Table, Container, Col, Spinner, Button } from "react-bootstrap";
 import ProductTableItem from "./ProductTableItem";
+import ImageUploader from "react-images-upload";
 
 function AdminPage() {
   const [allProducts, setAllProducts] = useState([]);
@@ -34,7 +35,7 @@ function AdminPage() {
   };
 
   const showImageUploaderHandler = () => {
-    setShowImageUpload(true);
+    setShowImageUpload(!showImageUpload);
   };
 
   useEffect(() => {
@@ -50,7 +51,23 @@ function AdminPage() {
           <div className="mt-3">
             {showImageUpload && (
               <div className="image-upload-container">
-                <div className="image-upload-container-content">test test</div>
+                <div className="image-upload-container-content swing-in-top-fwd">
+                  <h4>Upload Image</h4>
+                  <ImageUploader
+                    withIcon={true}
+                    buttonText="Choose images"
+                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    maxFileSize={5242880}
+                  />
+                  <div>
+                    <Button variant="secondary" className="mr-2 rounded-pill" onClick={showImageUploaderHandler}>
+                      Cancel
+                    </Button>
+                    <Button variant="success" className="rounded-pill">
+                      Submit
+                    </Button>
+                  </div>
+                </div>
               </div>
             )}
             <Table striped bordered hover size="sm">
